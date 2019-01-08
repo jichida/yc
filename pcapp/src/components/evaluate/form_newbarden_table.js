@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, Fields, reduxForm, Form } from "redux-form";
+import { DatePicker } from 'antd';
 // import { connect } from 'react-redux';
 import lodashmap from "lodash.map";
 import lodashget from "lodash.get";
@@ -111,6 +112,11 @@ const renderScore = props => {
           </p>
         )}
         <p className="blue fontSize14">{resultstring}</p>
+      </div>
+      <div>
+      <p className="fontSize14">
+            评估时间：<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="选择评估时间" />
+          </p>
       </div>
       <div>{BtnCo}</div>
     </div>
