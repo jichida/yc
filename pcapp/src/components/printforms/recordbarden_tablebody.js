@@ -214,7 +214,7 @@ class RecordbardenTableBody extends React.Component {
                 }
                 </div>
               </div>
-              <div className="score">
+              <div className="score" style={{borderBottom: 0, flex: 1}}>
                 <div className="flex-1 center">护士长签名</div>
                 <div className="flex-1" style={{'flexFlow': 'row'}}>
                 {
