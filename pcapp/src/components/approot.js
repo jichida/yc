@@ -26,6 +26,7 @@ import Datastatdetail from './datastat/detaillist';
 import Review from './review/reviewlist';
 
 import SearchPaientinfo from './index/index_search';
+import Search from './search';
 
 import Login from './login';
 import { requireAuthentication } from './requireauthentication';
@@ -60,6 +61,7 @@ class AppRoot extends React.Component {
           <Route exact path = "/viewturnoverrecords/:pid/:bid" component = { requireAuthentication( Viewturnoverrecords ) } />
 
           <Route exact path = "/searchpaientinfo" component = { requireAuthentication( SearchPaientinfo ) } />
+          <Route exact path = '/search' component = { requireAuthentication( Search ) } />
           <Route exact path = "/datastat" component = { requireAuthentication( Datastat ) } />
           <Route exact path = "/datastatdetail/:flag" component = { requireAuthentication( Datastatdetail ) } />
           <Route exact path = "/review" component = { requireAuthentication( Review ) } />

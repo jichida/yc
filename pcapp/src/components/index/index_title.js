@@ -16,7 +16,7 @@ class App extends React.Component {
 	componentWillUnmount() {}
 
 	onClickSearch = () => {
-		this.props.history.push( '/searchpaientinfo' );
+		this.props.history.push( '/search' );
 	}
 
 	onClickDatastat = () => {

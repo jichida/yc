@@ -1,0 +1,97 @@
+/* 底部页码蓝色圆形样式 page-number */
+/* .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+    border: 1px solid #ddd !important;
+    background-color: #ddd !important;
+    border-radius: 50%;
+}
+.ant-pagination-item {
+    border: 1px solid #ddd !important;
+    background-color: #ddd !important;
+    border-radius: 50%;
+}
+.ant-pagination-disabled a, .ant-pagination-disabled:hover a, .ant-pagination-disabled:focus a, .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link, .ant-pagination-disabled:focus .ant-pagination-item-link ,.ant-pagination-prev a, .ant-pagination-next a {
+    border-color: #ddd;
+    color: #666 !important;
+}
+.ant-pagination-item a {
+    color: #666 !important;
+}
+.ant-pagination-item-active a {
+    color: #fff !important;
+}
+.ant-pagination-item-active {
+    border-color: #0084bf !important;
+    background-color: #0084bf !important;
+} */
+
+/* 首页 */
+.ant-layout-content {
+    -ms-flex: auto;
+    flex: auto;
+    padding-left: 10px;
+    background: #fff;
+}
+.module-box{
+    width: 25%;
+    float: left;
+    padding: 10px 10px 0px 0px;
+    background-color: #fff;
+}
+.module{
+    background-color: #e6ebec;
+}
+.module-box Button{
+    float: right;
+}
+.module-box:nth-child(4n+1){
+    padding: 10px 10px 0px 0px;
+}
+.module-top,.moduleTop h2,.moduleTop h2 span{
+    color:#fff;
+}
+.module-top{
+    padding:7px 10px;
+    background-color: #009b87;
+}
+.module-top h2{
+    font-size:15px;
+    color:#fff;
+}
+.module-top h2 span{
+    font-size:17px;
+    margin-left: 10px;
+}
+.ant-btn-details {
+    padding: 0;
+    font-size: 14px;
+    height:19px;
+    line-height:19px;
+    color: #fff !important;
+    background-color: transparent !important;
+    border-color:transparent !important;
+}
+.module-bottom{
+    padding:7px 10px;
+    color:#666;
+}
+.module-bottom .state{
+    padding:0px 3px;
+    border-radius: 3px;
+    color:#fff;
+    background-color: #009b87;
+    margin-right: 4px;
+}
+.ant-btn-assess {
+    padding: 0;
+    font-size: 14px;
+    height: 19px;
+    line-height:19px;
+    color: #008c7a;
+    background-color: transparent;
+    border-color:transparent;
+}
+.ant-pagination {
+    text-align: center;
+    padding:20px 0px !important;
+    background-color: #fff;
+}
