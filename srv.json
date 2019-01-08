@@ -1,0 +1,21 @@
+{
+  "apps" : [
+      {
+        "name": "yc",
+        "script": "/home/ubuntu/yc/deploy/srv/index.js",
+        "env": {
+          "DEBUG":"appsrv:*",
+          "NODE_ENV": "production",
+          "DEBUG_COLORS":"1",
+		      "rooturl":"http://yt.i2u.top:6012",
+          "MONGO_URL":"mongodb://localhost/yc",
+          "listenport":6012,
+          "tcpport":50000,
+          "logdir":"/home/ubuntu/yc/deploy/srv/dist/log",
+          "admindir":"/home/ubuntu/yc/deploy/srv/admin",
+          "apppcdir":"/home/ubuntu/yc/deploy/srv/pcapp",
+        },
+        "node-args": "--nouse-idle-notification --gc_global --max-old-space-size=80960 --max-new-space-size=80960"
+      }
+  ]
+}
