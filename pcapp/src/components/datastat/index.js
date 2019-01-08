@@ -2,7 +2,7 @@ import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import IndexHead from '../index/index_title';
+import IndexHead from './title';
 // import lodashget from 'lodash.get';
 import {getstat_request} from '../../actions';
 
@@ -32,7 +32,7 @@ class App extends React.Component {
 			}
 	    return (
 	      	<Layout>
-					<IndexHead title="数据统计"/>
+					<IndexHead title="数据统计" showbtns={true} />
 					<div className="content-box">
 						<div className="content assess">
 							<h2 className="none-border">
