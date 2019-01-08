@@ -1,0 +1,59 @@
+div.lapseto-table
+  max-width 21cm 
+  display flex
+  flex-flow column
+  border: 1px solid #000
+  margin: 16px auto
+  .center
+    justify-content: center
+    align-items: center
+  div
+    display flex
+  .table-title
+    justify-content: center
+    font: bold 24px "微软雅黑","Microsoft YaHei"
+    padding: 32px 0px
+
+div.lapseto-table .abstract
+    flex-flow column
+    border-bottom: 1px solid #000
+    >div
+      font: 14px "SimSun"
+      margin 8px 0px
+      display flex
+      .in-date
+        flex: 2
+        span+span 
+          width 50px
+      >div
+        flex: 1
+        span 
+          width 84px
+          padding: 2px 0px
+          // background: #ff0000
+          text-align: right 
+        span+span 
+          width 96px 
+          border-bottom: 1px solid #000
+          // background: #00f
+          text-align: center
+
+div.lapseto-table .base-info
+    flex-flow: column
+    font: 14px "SimSun"
+    >div
+      border-bottom 1px solid #000
+      &:last-child
+        border: 0px
+      >div
+        padding: 8px 
+        border-right 1px solid #000 
+        &:last-child
+          border: 0px
+      &:nth-child(-n+2)
+        div
+          flex 1
+          justify-content center
+          align-items: center
+        div+div
+          flex 4 

@@ -1,0 +1,69 @@
+/* 通用样式、头部 */
+h1, h2, h3, h4, h5, h6, p{
+    margin:0px !important;
+    padding:0px !important;
+}
+.fontSize13{
+    font-size: 13px;
+}
+.fontSize14{
+    font-size: 14px;
+}
+.none-border{
+    border-bottom:0px !important;
+}
+.clearfix{
+    clear: both;
+}
+/* 底部页码蓝色圆形样式 page-number */
+/* .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+    border: 1px solid #ddd !important;
+    background-color: #ddd !important;
+    border-radius: 50% !important;
+}
+.ant-pagination-item {
+    border: 1px solid #ddd !important;
+    background-color: #ddd !important;
+    border-radius: 50% !important;
+}
+.ant-pagination-disabled a, .ant-pagination-disabled:hover a, .ant-pagination-disabled:focus a, .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link, .ant-pagination-disabled:focus .ant-pagination-item-link ,.ant-pagination-prev a, .ant-pagination-next a {
+    border-color: #ddd;
+    color: #666 !important;
+}
+.ant-pagination-item a {
+    color: #666 !important;
+}
+.ant-pagination-item-active a {
+    color: #fff !important;
+}
+.ant-pagination-item-active {
+    border-color: #0084bf !important;
+    background-color: #0084bf !important;
+} */
+/* 头部 tittle */
+.ant-layout-header {
+    background: #008c7a !important;
+    padding: 0 15px !important;
+    color:#fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+.ant-layout-header span {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.icon-index{
+    width:16px;
+    height:16px;
+    display: inline-flex;
+    vertical-align: sub;
+    margin-right:8px;
+}
+
+
+
+
+
+
