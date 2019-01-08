@@ -11,6 +11,7 @@ const style_nursing_record_td = {
   border: '1px solid #000',
   borderLeft: '0px',
   borderBottom: '0px',
+  boxSizing: 'border-box'
 };
 
 const style_nursing_record_td_white = {
@@ -151,7 +152,7 @@ class RecordNursingMeasuresTableBody extends React.Component {
             </tr>);
             const styletrdate = style_trdate;
             return (
-              <table className="flex-1" width="100%"  style={{backgroundColor: '#fff'}}>
+              <table className="flex-1" width="100%"  style={{backgroundColor: '#fff', boxSizing: 'border-box'}}>
                 <tbody>
                                   <tr >
                                     <td style={style_nursing_record_td} colSpan="2" rowSpan="2">请在采取的护理措施项目内打“<font style={stylefont}>√</font>”</td>
