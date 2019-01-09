@@ -84,7 +84,7 @@ class Index extends React.Component {
                     sm: { span: 16, offset: 8 },
                 }}
             >
-                <Button type="primary" htmlType="submit">Submit</Button>
+                <Button type="primary" htmlType="submit" style={{background: '#1890ff'}}>Submit</Button>
             </Form.Item>
         </Form>
         );
