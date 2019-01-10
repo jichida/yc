@@ -18,7 +18,11 @@ class App extends React.Component {
 
 		onClickDetail = (pid,id,isid2)=>{
 			this.props.history.push(`/newlapseto/${pid}/${id}/${isid2}`);
-		}
+    }
+    
+    onClickEvaluate = (pid, id, isid2)=>{
+      // go to 评估
+    }
 
     onItemConvert(item){
       return item;
@@ -28,6 +32,7 @@ class App extends React.Component {
         <AsyncTable
           db={this.props.db}
           onClickDetail = {this.onClickDetail}
+          onClickEvaluate = {this.onClickEvaluate}
           listtypeid = 'antdtablereviewlist'
           usecache = {!!g_querysaved}
           ref='refreviewinfo'

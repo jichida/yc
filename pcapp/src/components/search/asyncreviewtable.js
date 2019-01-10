@@ -144,13 +144,16 @@ class App extends React.Component {
 					<table width="100%" border="0" className="declare-review-list">
 						<tbody>
 						<tr className="top">
-							<td><div align="center">姓名</div></td>
 							<td><div align="center">住院号</div></td>
-							<td><div align="center">科室</div></td>
+							<td><div align="center">姓名</div></td>
+              <td><div align="center">性别</div></td>
+              <td><div align="center">出生年月</div></td>
 							<td><div align="center">入院时间</div></td>
+              <td><div align="center">出院时间</div></td>
+              <td><div align="center">是否在院</div></td>
+              <td><div align="center">科室</div></td>
+              <td><div align="center">病人分类</div></td>
 							<td><div align="center">床号</div></td>
-							<td><div align="center">申请护士</div></td>
-							<td><div align="center">审核状态</div></td>
 							<td><div align="center">操作</div></td>
 						</tr>
 
@@ -159,7 +162,8 @@ class App extends React.Component {
 								return (<ReviewDetailinfo key={info._id}
 									info={info}
 									db={this.props.db}
-									onClickDetail={this.props.onClickDetail} />)
+                  onClickDetail={this.props.onClickDetail}
+                  onClickEvaluate={this.props.onClickEvaluate} />)
 							})
 						}
 						</tbody>

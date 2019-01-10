@@ -1,7 +1,7 @@
 import React from 'react';
 // import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
+import { Layout, Card } from 'antd';
 
 import lodashget from 'lodash.get';
 import lodashmap from 'lodash.map';
@@ -38,11 +38,11 @@ class App extends React.Component {
 			})
 
 			console.log(query);
-			this.setState({
-				query
-			});
+			// this.setState({
+			// 	query
+			// });
 
-			this.refreshSearchlist();
+			// this.refreshSearchlist();
 			
 			
 		}
@@ -69,7 +69,7 @@ class App extends React.Component {
 						<IndexHead title="病人搜索"/>
 						<div className="content-box">
 							<div className="index-content" style={{width: '75%', margin: '0 auto'}}>
-								<SearchForm onSubmit={this.handleSearch} />
+								<Card style={{margin: '20px auto'}}><SearchForm onSubmit={this.handleSearch} /></Card>
 							</div>
 							<ReviewDetaillist
 								query={this.state.query}

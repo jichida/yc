@@ -63,7 +63,7 @@ class App extends React.Component {
 	    return (
 				<Layout>
 					<Header>
-						<span><img src="index.png" className="icon-index" alt=""/>{title}审阅转归申请表</span>
+						<span onClick={()=>{this.props.history.push('/')}}><img src="index.png" className="icon-index" alt=""/>{title}审阅转归申请表</span>
 					</Header>
 					<div className="content-box">
 					<div className="content assess">

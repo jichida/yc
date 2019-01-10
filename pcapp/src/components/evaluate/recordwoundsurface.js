@@ -36,7 +36,7 @@ class App extends React.Component {
 	    return (
 				<Layout>
 					<Header>
-						<span><img src="index.png" className="icon-index" alt=""/>查看创面评估</span>
+						<span onClick={()=>{this.props.history.push('/')}}><img src="index.png" className="icon-index" alt=""/>查看创面评估</span>
 					</Header>
 					<ViewPrintTitltToPrint title="创面评估打印" refnode={() => this.componentRef} history={this.props.history}/>
 					<form ref={el => (this.componentRef = el)}>

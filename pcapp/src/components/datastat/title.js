@@ -26,7 +26,7 @@ class App extends React.Component {
 			const title = this.props.title || '病人列表';
 	    return (
 	      	<Header>
-           			<span><img src="index.png" className="icon-index"  alt=""/>{title}</span>
+           			<span onClick={()=>{this.props.history.push('/')}}><img src="index.png" className="icon-index"  alt=""/>{title}</span>
 								{this.props.showbtns && btns}
 	      	</Header>
 	    );

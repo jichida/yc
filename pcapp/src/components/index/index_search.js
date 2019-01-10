@@ -100,7 +100,7 @@ class App extends React.Component {
 	    return (
 	      	<Layout>
 						<Header>
-							<span><img src="index.png" className="icon-index" alt=""/>病人搜索</span>
+							<span onClick={()=>{this.props.history.push('/')}}><img src="index.png" className="icon-index" alt=""/>病人搜索</span>
 							<span>
 								<Search
 									 placeholder="输入病人姓名、病号、床位号"
