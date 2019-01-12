@@ -3,27 +3,56 @@ import { Field } from 'redux-form';
 import { Upload, Icon, Modal} from 'antd';
 import './imageuploadarray.css';
 import config from '../../env/config.js';
+import FineUploaderTraditional from 'fine-uploader-wrappers';
+import Gallery from '../reactfineupload/gallery';
+import '../reactfineupload/gallery/gallery.css';
 
+import ImageA from './search_a.png';
+import ImageB from './search_b.png';
+import ImageC from './search_c.png';
+
+const uploader = new FineUploaderTraditional({
+  options: {
+      chunking: {
+          enabled: false
+      },
+      deleteFile: {
+          enabled: true,
+          endpoint: 'http://yt.i2u.top:4101/fineuploads'
+      },
+      request: {
+          endpoint: 'http://yt.i2u.top:4101/fineuploads'
+      },
+      retry: {
+          enableAuto: true
+      }
+  }
+})
 
 class PicturesWall extends React.Component {
         constructor(props) {
             super(props);
-            console.log('PicturesWall===>' + JSON.stringify(props));
-            let fileListcur = [];
-            for(let i = 0;i < props.input.value.length;i++){
-                fileListcur.push(         {
-                    name:'filename'+i,
-                    uid:i,
-                    status: 'done',
-                    url: props.input.value[i]
-                });
-            }
+            // console.log('PicturesWall===>' + JSON.stringify(props));
+            // let fileListcur = [];
+            // for(let i = 0;i < props.input.value.length;i++){
+            //     fileListcur.push(         {
+            //         name:'filename'+i,
+            //         uid:i,
+            //         status: 'done',
+            //         url: props.input.value[i]
+            //     });
+            // }
 
+            // this.state = {
+            //     previewVisible: false,
+            //     previewImage: '',
+            //     fileList: fileListcur,
+            // };
             this.state = {
-                previewVisible: false,
-                previewImage: '',
-                fileList: fileListcur,
-            };
+              previewImage: '',
+              previewVisible: false,
+              fileList: props.input.value
+            }
         }
 
 
@@ -59,38 +88,52 @@ class PicturesWall extends React.Component {
     // });
   }
 
-  handleChange = ({ fileList }) => {
-    console.log('fileList' + JSON.stringify(fileList));
-    let filelistnew = [];
-    let uploadedfiles =[ ];
-    fileList.forEach((fileobj)=>{
-      if (fileobj.status === 'done') {
-        if(fileobj.hasOwnProperty('url')){//已经处理过了!
-          uploadedfiles.push(fileobj.url);
-          filelistnew.push(fileobj);
-        }
-        else{
-          uploadedfiles.push(fileobj.response.files[0].url);
-          filelistnew.push({
-            name:fileobj.name,
-            uid:fileobj.uid,
-            status: 'done',
-            url: fileobj.response.files[0].url
-          });
-        }
+  // handleChange = ({ fileList }) => {
+  //   console.log('fileList' + JSON.stringify(fileList));
+  //   let filelistnew = [];
+  //   let uploadedfiles =[ ];
+  //   fileList.forEach((fileobj)=>{
+  //     if (fileobj.status === 'done') {
+  //       if(fileobj.hasOwnProperty('url')){//已经处理过了!
+  //         uploadedfiles.push(fileobj.url);
+  //         filelistnew.push(fileobj);
+  //       }
+  //       else{
+  //         uploadedfiles.push(fileobj.response.files[0].url);
+  //         filelistnew.push({
+  //           name:fileobj.name,
+  //           uid:fileobj.uid,
+  //           status: 'done',
+  //           url: fileobj.response.files[0].url
+  //         });
+  //       }
 
-      }
-      else {
-        filelistnew.push(fileobj);
-      }
+  //     }
+  //     else {
+  //       filelistnew.push(fileobj);
+  //     }
 
-    });
+  //   });
 
-    this.setState({ fileList:filelistnew });
+  //   this.setState({ fileList:filelistnew });
 
-    console.log('uploadedfiles:' + JSON.stringify(uploadedfiles));
-    this.props.input.onChange(uploadedfiles);
-  }//this.setState({ fileList })
+  //   console.log('uploadedfiles:' + JSON.stringify(uploadedfiles));
+  //   this.props.input.onChange(uploadedfiles);
+  // }
+  //this.setState({ fileList })
+  handleChange = (files) => {
+    this.setState({
+      fileList: files
+    })
+  }
+
+  xviewUploadImage = (param,callback)=>{
+    callback({
+      code:0,
+      message:'success',
+      data:[ImageA,ImageB,ImageC]
+    })
+  };
 
   render() {
     // const {label} = this.props;
@@ -100,23 +143,32 @@ class PicturesWall extends React.Component {
         <Icon type="plus" />
         <div className="ant-upload-text">上传</div>
       </div>
-    );
+    )
+
     return (
+      // <div className="clearfix">
+      //   <Upload
+      //     action={config.serverurl + "/uploadavatar"}
+      //     listType="picture-card"
+      //     fileList={fileList}
+      //     onPreview={this.handlePreview}
+      //     onChange={this.handleChange}
+      //   >
+      //     {fileList.length >= 9 ? null : uploadButton}
+      //   </Upload>
+      //   <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+      //     <img alt="example" style={{ width: '100%' }} src={previewImage} />
+      //   </Modal>
+      // </div>
       <div className="clearfix">
-        <Upload
-          action={config.serverurl + "/uploadavatar"}
-          listType="picture-card"
-          fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
-        >
-          {fileList.length >= 9 ? null : uploadButton}
-        </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
+        <Gallery uploader={ uploader } 
+          files={fileList} 
+          onChange={this.handleChange} 
+          baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
+          xviewUploadImage={this.xviewUploadImage}  
+        />
       </div>
-    );
+    )
   }
 }
 
