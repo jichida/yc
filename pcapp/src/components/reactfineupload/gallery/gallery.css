@@ -73,10 +73,10 @@
 }
 .react-fine-uploader-gallery-file-input-upload-icon {
     fill: #00ABC7;
-    height: 50px;
-    margin-bottom: -6px;
+    height: 35px;
+    margin-bottom: -20px;
     margin-right: 5px;
-    width: 50px;
+    width: 35px;
 }
 
 .react-fine-uploader-gallery-progress-bar,
@@ -148,7 +148,7 @@
     margin: 0 8px 5px 8px;
     position: relative;
     vertical-align: top;
-    width: 74px;
+    width: 74px !important;
     height: 74px;
 }
 

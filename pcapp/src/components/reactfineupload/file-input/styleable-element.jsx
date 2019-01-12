@@ -3,8 +3,10 @@ import convert from './base64toblob';
 
 
 const containerStyle = {
-    display: 'inline-block',
-    position: 'relative'
+    display: 'flex',
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center'
 }
 
 const inputStyle = {

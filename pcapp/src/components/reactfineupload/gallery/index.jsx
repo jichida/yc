@@ -246,6 +246,7 @@ class Gallery extends Component {
                                 key={id}
                                 classNames="react-fine-uploader-gallery-files"
                                 timeout={{ enter: 500, exit: 300 }}
+                                style={{borderBottom: 0}}
                             >
                                 <li key={ id }
                                     className='react-fine-uploader-gallery-file'
@@ -377,10 +378,10 @@ const MaybeDropzone = ({ children, content, hasVisibleFiles, uploader, ...props 
 const FileInputComponent = ({ uploader, xviewUploadImage, ...props }) => {
     const { children, ...fileInputProps } = props
     const content = children || (
-        <span>
-            <UploadIcon className='react-fine-uploader-gallery-file-input-upload-icon' />
-            <span style={{display: 'inline-block', fontSize:'12px'}}>上传图片</span> 
-        </span>
+        <div  style={{width: '100%'}}>
+            <p style={{textAlign: 'center'}}><UploadIcon className='react-fine-uploader-gallery-file-input-upload-icon' /></p>
+            <p style={{fontSize:'12px', textAlign: 'center'}}>上传图片</p> 
+        </div>
     )
 
     return (

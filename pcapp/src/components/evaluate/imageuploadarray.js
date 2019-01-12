@@ -165,7 +165,7 @@ class PicturesWall extends React.Component {
           files={fileList} 
           onChange={this.handleChange} 
           baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
-          xviewUploadImage={this.xviewUploadImage}  
+          // xviewUploadImage={this.xviewUploadImage}  
         />
       </div>
     )
