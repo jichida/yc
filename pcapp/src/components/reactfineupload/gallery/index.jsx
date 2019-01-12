@@ -97,10 +97,15 @@ class Gallery extends Component {
         // }
 
         this._onComplete = (id, name, res) => {
+            console.log('id: %d',id)
+            console.log('name: %s', name )
+
             const visibleFiles = this.state.visibleFiles;
             const fromServer = false;
-            const thumbnailUrl = this.props.baseUrl + name;
+            const thumbnailUrl = this.props.baseUrl + '/' + name;
             visibleFiles.push({id, thumbnailUrl, fromServer});
+
+            console.log('thumbnaiUrl: %s', thumbnailUrl)
 
             const files = this.props.files;
             files.push(thumbnailUrl)
