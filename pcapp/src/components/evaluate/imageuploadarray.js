@@ -1,15 +1,15 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { Upload, Icon, Modal} from 'antd';
+import { Icon} from 'antd';
 import './imageuploadarray.css';
 import config from '../../env/config.js';
 import FineUploaderTraditional from 'fine-uploader-wrappers';
 import Gallery from '../reactfineupload/gallery';
 import '../reactfineupload/gallery/gallery.css';
-
-import ImageA from './search_a.png';
-import ImageB from './search_b.png';
-import ImageC from './search_c.png';
+import {xviewUploadImage} from '../../env/selphoto';
+// import ImageA from './search_a.png';
+// import ImageB from './search_b.png';
+// import ImageC from './search_c.png';
 
 const uploader = new FineUploaderTraditional({
   options: {
@@ -18,10 +18,10 @@ const uploader = new FineUploaderTraditional({
       },
       deleteFile: {
           enabled: true,
-          endpoint: 'http://yt.i2u.top:4101/fineuploads'
+          endpoint: `${config.serverurl}/fineuploads`
       },
       request: {
-          endpoint: 'http://yt.i2u.top:4101/fineuploads'
+          endpoint: `${config.serverurl}/fineuploads`
       },
       retry: {
           enableAuto: true
@@ -127,13 +127,13 @@ class PicturesWall extends React.Component {
     })
   }
 
-  xviewUploadImage = (param,callback)=>{
-    callback({
-      code:0,
-      message:'success',
-      data:[ImageA,ImageB,ImageC]
-    })
-  };
+  // xviewUploadImage = (param,callback)=>{
+  //   callback({
+  //     code:0,
+  //     message:'success',
+  //     data:[ImageA,ImageB,ImageC]
+  //   })
+  // };
 
   render() {
     // const {label} = this.props;
@@ -161,11 +161,10 @@ class PicturesWall extends React.Component {
       //   </Modal>
       // </div>
       <div className="clearfix">
-        <Gallery uploader={ uploader } 
-          files={fileList} 
-          onChange={this.handleChange} 
-          baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
-          xviewUploadImage={this.xviewUploadImage}  
+        <Gallery uploader={ uploader }
+          files={fileList}
+          onChange={this.handleChange}
+          xviewUploadImage={xviewUploadImage}
         />
       </div>
     )

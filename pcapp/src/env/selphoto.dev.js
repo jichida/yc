@@ -1,0 +1,3 @@
+let xviewUploadImage;
+
+export {xviewUploadImage};
