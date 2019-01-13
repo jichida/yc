@@ -173,7 +173,7 @@ class PicturesWall extends React.Component {
           files={fileList}
           onChange={this.handleChange}
           onPreview={this.handlePreview}
-          // xviewUploadImage={xviewUploadImage}
+          xviewUploadImage={xviewUploadImage}
         />
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
