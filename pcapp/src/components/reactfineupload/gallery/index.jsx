@@ -116,9 +116,7 @@ class Gallery extends Component {
 
                 visibleFiles.splice(fileIndex, 1)
                 this.setState({visibleFiles})
-                console.log(id)
-                
-                
+                                
                 this.props.onChange(files);
             }
         }

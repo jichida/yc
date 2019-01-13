@@ -72,7 +72,9 @@ const StyleableFileInput = ({ children, className, onChange, xviewUploadImage, .
         xviewUploadImage({},(result)=>{
             for( const item of result.data){
                 let blob = convert(item);
-                let name = getRandomName();
+                let index = blob.type.indexOf('/') + 1;
+                let type = blob.type.substring(index);
+                let name = getRandomName() + '.' + type;
                 changeEvent.target.push({blob, name})
             }
 
