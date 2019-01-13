@@ -34,28 +34,28 @@ class Thumbnail extends Component {
     }
 
     componentDidMount() {
-        this.props.uploader.methods.drawThumbnail(
-            this.props.id,
-            this._canvas,
-            this.props.maxSize,
-            this.props.fromServer,
-            this.props.customResizer
-        )
-            .then(
-                () => {
-                    this.setState({
-                        drawComplete: true,
-                        success: true
-                    })
-                },
+        // this.props.uploader.methods.drawThumbnail(
+        //     this.props.id,
+        //     this._canvas,
+        //     this.props.maxSize,
+        //     this.props.fromServer,
+        //     this.props.customResizer
+        // )
+        //     .then(
+        //         () => {
+        //             this.setState({
+        //                 drawComplete: true,
+        //                 success: true
+        //             })
+        //         },
 
-                () => {
-                    this.setState({
-                        drawComplete: true,
-                        success: false
-                    })
-                }
-            )
+        //         () => {
+        //             this.setState({
+        //                 drawComplete: true,
+        //                 success: false
+        //             })
+        //         }
+        //     )
     }
 
     handlePreview = ()=>{
@@ -68,11 +68,15 @@ class Thumbnail extends Component {
 
         return (
             <span className={ `react-fine-uploader-thumbnail-container ${customContainerClassName || ''}` } onClick={this.handlePreview}>
-                <canvas className={ `react-fine-uploader-thumbnail ${this.props.className || ''}` }
+                {/* <canvas className={ `react-fine-uploader-thumbnail ${this.props.className || ''}` }
                     hidden={ !this.state.drawComplete || this._failure }
                     ref={ component => this._canvas = component }
+                /> */}
+                <img src={this.props.thumbnailUrl} 
+                    style={{maxHeight: this.props.maxSize, maxWidth: this.props.maxSize, objectFit: 'cover'}}
+                    alt=''
                 />
-                { this._maybePlaceholder }
+                {/* { this._maybePlaceholder } */}
             </span>
         )
     }

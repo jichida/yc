@@ -173,8 +173,7 @@ class PicturesWall extends React.Component {
           files={fileList}
           onChange={this.handleChange}
           onPreview={this.handlePreview}
-          baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
-          // xviewUploadImage={this.xviewUploadImage}
+          // xviewUploadImage={xviewUploadImage}
         />
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
           <img alt="example" style={{ width: '100%' }} src={previewImage} />

@@ -219,6 +219,8 @@ class Gallery extends Component {
         // const pauseResumeButtonProps = chunkingEnabled && getComponentProps('pauseResumeButton', this.props)
 
         const visibleFiles = this.state.visibleFiles;
+
+        console.log(visibleFiles)
         
         // for( const file of this.props.files){
         //     visibleFiles.push({id: file.id, fromServer: file.fromServer})
@@ -250,7 +252,7 @@ class Gallery extends Component {
                     exit={!this.props.animationsDisabled}
                 >
                     {
-                        visibleFiles.map(({ id, status, fromServer }) => (
+                        visibleFiles.map(({ id, status, thumbnailUrl, fromServer }) => (
                             <CSSTransition
                                 key={id}
                                 classNames="react-fine-uploader-gallery-files"
@@ -267,6 +269,7 @@ class Gallery extends Component {
                                     />
                                     <Thumbnail className='react-fine-uploader-gallery-thumbnail'
                                         id={ id }
+                                        thumbnailUrl= {thumbnailUrl}
                                         onPreview={this.handlePreview}
                                         fromServer={ fromServer }
                                         uploader={ uploader }
