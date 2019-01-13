@@ -58,12 +58,16 @@ class Thumbnail extends Component {
             )
     }
 
+    handlePreview = ()=>{
+        this.props.onPreview(this.props.id)
+    }
+
 
     render() {
         const customContainerClassName = this.props.className && this.props.className + '-container'
 
         return (
-            <span className={ `react-fine-uploader-thumbnail-container ${customContainerClassName || ''}` }>
+            <span className={ `react-fine-uploader-thumbnail-container ${customContainerClassName || ''}` } onClick={this.handlePreview}>
                 <canvas className={ `react-fine-uploader-thumbnail ${this.props.className || ''}` }
                     hidden={ !this.state.drawComplete || this._failure }
                     ref={ component => this._canvas = component }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import { Icon} from 'antd';
+import { Icon, Modal} from 'antd';
 import './imageuploadarray.css';
 import config from '../../env/config.js';
 import FineUploaderTraditional from 'fine-uploader-wrappers';
@@ -60,32 +60,39 @@ class PicturesWall extends React.Component {
     this.setState({ previewVisible: false });
   }
 
-  handlePreview = (file) => {
-    let fileobj = file;
-    console.log('onClick handlePreview file:' + JSON.stringify(file));
-    if (fileobj.status === 'done') {
-      let url = '';
-      if(fileobj.hasOwnProperty('url')){
-        url = fileobj.url;
-      }
-      else{
-        url = fileobj.response.files[0].url;
-      }
-      fileobj = {
-        status: 'done',
-        url: url
-      };
-    }
+  // handlePreview = (file) => {
+  //   let fileobj = file;
+  //   console.log('onClick handlePreview file:' + JSON.stringify(file));
+  //   if (fileobj.status === 'done') {
+  //     let url = '';
+  //     if(fileobj.hasOwnProperty('url')){
+  //       url = fileobj.url;
+  //     }
+  //     else{
+  //       url = fileobj.response.files[0].url;
+  //     }
+  //     fileobj = {
+  //       status: 'done',
+  //       url: url
+  //     };
+  //   }
 
-    console.log('onClick handlePreview fileobj:' + JSON.stringify(fileobj));
+  //   console.log('onClick handlePreview fileobj:' + JSON.stringify(fileobj));
+  //   this.setState({
+  //     previewImage: fileobj.url || fileobj.thumbUrl,
+  //     previewVisible: true,
+  //   });
+  //   // this.setState({
+  //   //   previewImage: file.url || file.thumbUrl,
+  //   //   previewVisible: true,
+  //   // });
+  // }
+
+  handlePreview = (url) => {
     this.setState({
-      previewImage: fileobj.url || fileobj.thumbUrl,
-      previewVisible: true,
-    });
-    // this.setState({
-    //   previewImage: file.url || file.thumbUrl,
-    //   previewVisible: true,
-    // });
+      previewImage: url,
+      previewVisible: true
+    })
   }
 
   // handleChange = ({ fileList }) => {
@@ -164,9 +171,13 @@ class PicturesWall extends React.Component {
         <Gallery uploader={ uploader } 
           files={fileList} 
           onChange={this.handleChange} 
+          onPreview={this.handlePreview}
           baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
           // xviewUploadImage={this.xviewUploadImage}  
         />
+        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+        </Modal>
       </div>
     )
   }

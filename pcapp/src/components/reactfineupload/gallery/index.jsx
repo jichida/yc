@@ -97,15 +97,10 @@ class Gallery extends Component {
         // }
 
         this._onComplete = (id, name, res) => {
-            console.log('id: %d',id)
-            console.log('name: %s', name )
-
             const visibleFiles = this.state.visibleFiles;
             const fromServer = false;
-            const thumbnailUrl = this.props.baseUrl + '/' + name;
+            const thumbnailUrl = res.url;
             visibleFiles.push({id, thumbnailUrl, fromServer});
-
-            console.log('thumbnaiUrl: %s', thumbnailUrl)
 
             const files = this.props.files;
             files.push(thumbnailUrl)
@@ -125,6 +120,15 @@ class Gallery extends Component {
                 
                 
                 this.props.onChange(files);
+            }
+        }
+
+        this.handlePreview = (id) => {
+            const fileIndex = this._findFileIndex(id);
+            if (fileIndex >= 0) {
+                const visibleFiles = this.state.visibleFiles;                
+                
+                this.props.onPreview(visibleFiles[fileIndex].thumbnailUrl);
             }
         }
 
@@ -263,6 +267,7 @@ class Gallery extends Component {
                                     />
                                     <Thumbnail className='react-fine-uploader-gallery-thumbnail'
                                         id={ id }
+                                        onPreview={this.handlePreview}
                                         fromServer={ fromServer }
                                         uploader={ uploader }
                                         { ...thumbnailProps }
