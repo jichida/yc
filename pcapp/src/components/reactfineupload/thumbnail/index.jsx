@@ -73,7 +73,7 @@ class Thumbnail extends Component {
                     ref={ component => this._canvas = component }
                 /> */}
                 <img src={this.props.thumbnailUrl} 
-                    style={{maxHeight: this.props.maxSize, maxWidth: this.props.maxSize, objectFit: 'cover'}}
+                    style={{maxHeight: this.props.maxSize, maxWidth: this.props.maxSize, objectFit: 'cover', margin: '0 auto'}}
                     alt=''
                 />
                 {/* { this._maybePlaceholder } */}
