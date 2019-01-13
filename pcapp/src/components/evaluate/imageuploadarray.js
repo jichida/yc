@@ -132,6 +132,7 @@ class PicturesWall extends React.Component {
     this.setState({
       fileList: files
     })
+    this.props.input.onChange(files);
   }
 
   // xviewUploadImage = (param,callback)=>{
@@ -145,13 +146,13 @@ class PicturesWall extends React.Component {
   render() {
     // const {label} = this.props;
     const { previewVisible, previewImage, fileList } = this.state;
-    const uploadButton = (
-      <div>
-        <Icon type="plus" />
-        <div className="ant-upload-text">上传</div>
-      </div>
-    )
-
+    // const uploadButton = (
+    //   <div>
+    //     <Icon type="plus" />
+    //     <div className="ant-upload-text">上传</div>
+    //   </div>
+    // )
+    console.log(fileList);
     return (
       // <div className="clearfix">
       //   <Upload
@@ -168,12 +169,12 @@ class PicturesWall extends React.Component {
       //   </Modal>
       // </div>
       <div className="clearfix">
-        <Gallery uploader={ uploader } 
-          files={fileList} 
-          onChange={this.handleChange} 
+        <Gallery uploader={ uploader }
+          files={fileList}
+          onChange={this.handleChange}
           onPreview={this.handlePreview}
           baseUrl={config.serverurl + "/uploadavatar"} //上传图片目录
-          // xviewUploadImage={this.xviewUploadImage}  
+          // xviewUploadImage={this.xviewUploadImage}
         />
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
