@@ -1,8 +1,8 @@
 import React from 'react'
 import { Form, Button, DatePicker, Input, Switch, Row, Col, Select} from 'antd';
-
+import cnLocale from 'antd/lib/date-picker/locale/zh_CN.js';
 const Option = Select.Option;
-    
+
 class Index extends React.Component {
 
     handleSubmit = (e) => {
@@ -19,7 +19,7 @@ class Index extends React.Component {
     handleReset = () => {
         this.props.form.resetFields();
       }
-    
+
 
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -77,14 +77,14 @@ class Index extends React.Component {
                 <Col span={6}>
                     <Form.Item {...formItemLayout} label="入院日期" >
                     {getFieldDecorator('In_date')(
-                        <DatePicker />
+                        <DatePicker locale={cnLocale}/>
                     )}
                     </Form.Item>
                 </Col>
                 <Col span={6}>
                     <Form.Item {...formItemLayout} label="出院日期" >
                     {getFieldDecorator('Out_date')(
-                        <DatePicker />
+                        <DatePicker locale={cnLocale}/>
                     )}
                     </Form.Item>
                 </Col>

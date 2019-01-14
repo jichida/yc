@@ -138,7 +138,7 @@ class RecordbardenTableBody extends React.Component {
                         const info = evaluatebardens[bid];
                         let curday = '';
                         if(!!info){
-                          curday = moment(info.updated_at).format('MM月DD日')
+                          curday = moment(info.evaluate_at).format('MM月DD日')
                         }
                         console.log(info);
 

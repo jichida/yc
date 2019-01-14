@@ -6,7 +6,8 @@ import lodashmap from "lodash.map";
 import lodashget from "lodash.get";
 import { getbardenstring } from "../../util/index";
 import './newbardenStyle.styl';
-
+import moment from 'moment';
+import cnLocale from 'antd/lib/date-picker/locale/zh_CN.js';
 
 const stylefont = {
   color: "#0084bf",
@@ -67,7 +68,8 @@ const renderScore = props => {
     score_activity,
     score_mobility,
     score_nutrition,
-    score_friction
+    score_friction,
+    evaluate_at
   } = props;
 
   const sensoryperception = lodashget(
@@ -99,6 +101,10 @@ const renderScore = props => {
   } else {
     resultstring = getbardenstring(score);
   }
+  console.log(evaluate_at.input.value);
+  const evaluate_at_time = evaluate_at.input.value !== '' ? moment(evaluate_at.input.value):
+   moment();
+   console.log(evaluate_at_time);
   let BtnCo = <button className="ant-btn-edit blue white">递交评估</button>;
   if (!isfinished) {
     BtnCo = <div className="ant-btn-edit gray white">递交评估</div>;
@@ -114,9 +120,16 @@ const renderScore = props => {
         <p className="blue fontSize14">{resultstring}</p>
       </div>
       <div>
-      <p className="fontSize14">
-            评估时间：<DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="选择评估时间" />
-          </p>
+      <div className="fontSize14">
+            评估时间：<DatePicker showTime format="YYYY-MM-DD HH:mm:ss"
+            locale={cnLocale}
+            placeholder="选择评估时间"
+            value={evaluate_at_time}
+            onChange = {(v)=>{
+              const mv = moment(v).format('YYYY-MM-DD HH:mm:ss')
+              evaluate_at.input.onChange(mv);
+            }}/>
+          </div>
       </div>
       <div>{BtnCo}</div>
     </div>
@@ -284,7 +297,7 @@ class PageForm extends React.Component {
 
                     <div className="scorenew" style={{flex:1}}>
                         <Fields names={['score_sensoryperception', 'score_moisture', 'score_activity',
-                            'score_mobility','score_nutrition','score_friction']}
+                            'score_mobility','score_nutrition','score_friction','evaluate_at']}
                                     component={renderScore}/>
                     </div>
                 </div>

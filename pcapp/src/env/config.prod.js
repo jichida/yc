@@ -1,4 +1,4 @@
-let islocalhost = false;
+﻿let islocalhost = false;
 const serverurl = islocalhost?'http://localhost:6012':'http://yt.i2u.top:6012';
 const serverurlrestful = islocalhost?`${serverurl}/api`:`${serverurl}/api`;
 const wspath = islocalhost?'/socket.io':'/socket.io';
@@ -9,7 +9,7 @@ let config = {
     serverurl:`${serverurl}`,
     wspath:`${wspath}`,
     requesttimeout:5000,
-    appversion:'1.2.7(build0107)',
+    appversion:'1.2.7(build0114)',
     sendlocationinterval:20000,
     softmode:'pcapp',
     isandroid:()=>{

@@ -238,7 +238,7 @@ class PageForm extends React.Component {
 							</div>
 						</div>
             <Fields names={['score_sensoryperception', 'score_moisture', 'score_activity',
-              'score_mobility','score_nutrition','score_friction']}
+              'score_mobility','score_nutrition','score_friction','evaluate_at']}
                     component={renderScore}/>
 
           </Form>);

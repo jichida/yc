@@ -62,7 +62,7 @@ class App extends React.Component {
 			const {users} = this.props;
 			if(!!record){
 				return [
-					<span key={0}>{lodashget(record,'created_at','')}</span>,
+					<span key={0}>{lodashget(record,'evaluate_at','')}</span>,
 					<span key={1}>评估护士:{lodashget(users[record.usercreatorid],'Staffname','')}</span>,
 					<span key={2}>评估分数:{lodashget(record,'score','')}</span>,
 					<span key={3} onClick={()=>{this.onClickEdit(record);}}>详情</span>

@@ -7,7 +7,7 @@ import TitleDetail from '../patientinfo/patientinfo_content_title_detail';
 import NewbardenFormTable from './form_newbarden_table';
 import {createevaluatebarden_request,editevaluatebarden_request} from '../../actions';
 import '../printforms/form_tamplate_style.styl'
-
+import moment from 'moment';
 const { Header } = Layout;
 
 class App extends React.Component {
@@ -46,6 +46,7 @@ class App extends React.Component {
 				score_nutrition:0,//营养
 				score_friction:0,//摩擦力/剪切力
 				score:0,
+				evaluate_at:moment().format('YYYY-MM-DD HH:mm:ss')
 			};
 			if(!isnew){
 				formvalues = curevaluatebarden;

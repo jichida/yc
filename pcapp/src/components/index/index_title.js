@@ -10,13 +10,13 @@ import DepatSelect from './selector_depat';	// 载入分选模块
 // import lodashmap from 'lodash.map';
 const { Header } = Layout;
 class App extends React.Component {
-	
+
 	componentDidMount() {}
 
 	componentWillUnmount() {}
 
 	onClickSearch = () => {
-		this.props.history.push( '/search' );
+		this.props.history.push( '/searchpaientinfo' );
 	}
 
 	onClickDatastat = () => {

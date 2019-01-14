@@ -32,7 +32,7 @@ class App extends React.Component {
 			}
 	    return (
 	      	<Layout>
-					<IndexHead title="数据统计" showbtns={true} />
+					<IndexHead title="数据统计" showbtns={false} />
 					<div className="content-box">
 						<div className="content assess">
 							<h2 className="none-border">
